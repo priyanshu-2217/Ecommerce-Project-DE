@@ -1,0 +1,12 @@
+[project]
+name = "airflow"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "apache-airflow>=3.2.1",
+    "apache-airflow-providers-amazon>=9.26.0",
+    "decorator>=5.2.1",
+    "faker>=40.15.0",
+]
