@@ -1,0 +1,62 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+ENV/
+
+# =========================
+# Environment files
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# dbt
+# =========================
+target/
+dbt_packages/
+logs/
+profiles.yml
+.user.yml
+
+# =========================
+# Airflow
+# =========================
+airflow/logs/
+airflow/dags/__pycache__/
+airflow/plugins/__pycache__/
+airflow/airflow.db
+airflow/standalone_admin_password.txt
+airflow/webserver_config.py
+airflow/.env
+
+# =========================
+# Docker
+# =========================
+*.pid
+*.log
+docker-compose.override.yml
+
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Secrets / Credentials
+# =========================
+*.pem
+*.key
+*.crt
+*.json
