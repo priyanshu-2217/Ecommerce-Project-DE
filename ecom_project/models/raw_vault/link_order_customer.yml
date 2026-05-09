@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: link_order_customer
+    description: "Raw Vault link storing relationships between orders and customers."
+
+    columns:
+      - name: hk_order_customer_l
+        description: "Hash key generated from order and customer relationship."
+        tests:
+          - not_null
+          - unique
+
+      - name: hk_order_h
+        description: "Foreign hash key referencing hub_order."
+        tests:
+          - not_null
+
+      - name: hk_customer_h
+        description: "Foreign hash key referencing customer hub."
+        tests:
+          - not_null
+
+      - name: order_id
+        description: "Business order identifier."
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: "Business customer identifier."
+        tests:
+          - not_null
+
+      - name: load_dts
+        description: "Timestamp when relationship was loaded."
+        tests:
+          - not_null
+
+      - name: record_source
+        description: "Origin source of relationship data."
+        tests:
+          - not_null

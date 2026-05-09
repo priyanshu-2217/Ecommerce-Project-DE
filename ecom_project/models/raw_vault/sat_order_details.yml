@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: sat_order_details
+    description: "Raw Vault satellite storing append-only historical order descriptive attributes."
+
+    columns:
+      - name: hk_order_h
+        description: "Hash key referencing hub_order."
+        tests:
+          - not_null
+
+      - name: order_amount
+        description: "Order amount captured from source JSON."
+        tests:
+          - not_null
+
+      - name: order_status
+        description: "Current order status."
+
+        tests:
+          - not_null
+
+          - accepted_values:
+              arguments:
+                values:
+                  - placed
+                  - shipped
+                  - delivered
+                  - cancelled
+
+      - name: order_timestamp
+        description: "Timestamp representing when the order was created."
+        tests:
+          - not_null
+
+      - name: hd_order_details
+        description: "Hashdiff used for CDC and append-only satellite logic."
+        tests:
+          - not_null
+
+      - name: load_dts
+        description: "Timestamp when satellite row was loaded."
+        tests:
+          - not_null
+
+      - name: record_source
+        description: "Source system or file name."
+        tests:
+          - not_null

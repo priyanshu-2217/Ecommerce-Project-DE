@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: hub_order
+    description: "Raw Vault hub storing unique order business keys."
+
+    columns:
+      - name: hk_order_h
+        description: "Hash key generated from order_id."
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        description: "Business order identifier."
+        tests:
+          - not_null
+          - unique
+
+      - name: load_dts
+        description: "Timestamp when the record was loaded into the Raw Vault."
+        tests:
+          - not_null
+
+      - name: record_source
+        description: "Source system or file origin."
+        tests:
+          - not_null

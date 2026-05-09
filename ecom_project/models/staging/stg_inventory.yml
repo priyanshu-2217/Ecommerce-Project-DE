@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_inventory
+    description: "Parsed staging model for raw inventory JSON data."
+    columns:
+      - name: hash_product_id
+        description: "Hash-based surrogate key generated from product_id."
+        tests:
+          - not_null
+          - unique
+
+      - name: product_id
+        description: "Business product identifier extracted from raw inventory JSON."
+        tests:
+          - not_null
+          - unique
+
+      - name: product_name
+        description: "Product name extracted from raw inventory JSON."
+        tests:
+          - not_null
+
+      - name: stock
+        description: "Available stock quantity converted into integer."
+        tests:
+          - not_null
+
+      - name: updated_at
+        description: "Inventory update timestamp parsed from raw JSON."
+        tests:
+          - not_null
+
+      - name: loaded_at
+        description: "Timestamp when the raw inventory record was loaded into Snowflake."
+        tests:
+          - not_null
